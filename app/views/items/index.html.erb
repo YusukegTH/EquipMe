@@ -3,11 +3,9 @@
 </div>
 
 
-<div class="container col-8 p-3">
-
-<h2>Check the items</h2>
-<div class="d-flex flex-row flex-wrap p-3">
-
+<div class="container">
+<div class="d-flex align-items-center justify-content-center p-3"> <h2>Check the Items</h2></div>
+<div class="d-flex flex-row flex-wrap align-items-center justify-content-center p-3">
 <% @items.each do |item| %>
   <div class="card m-1 col-3 border rounded-4 shadow-sm">
     <img src="https://th.bing.com/th/id/OIP.tAZtpLwas9yqBLsTpL9-5QHaEK?rs=1&pid=ImgDetMain" alt="<%= item.name %>" class= "rounded-top-4">
