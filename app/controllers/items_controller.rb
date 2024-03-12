@@ -20,5 +20,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id])
+    item.delete_with_associations
+    redirect_to items_path, notice: "Item deleted successfully"
   end
 end
