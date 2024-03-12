@@ -27,5 +27,14 @@ Item.destroy_all
 
     item = Item.new(item_attributes)
     item.save
+
+    booking_attributes = {
+      user: user,
+      item: item,
+    }
+
+    Booking.create(booking_attributes)
+    puts Booking.last
+
   end
 end
