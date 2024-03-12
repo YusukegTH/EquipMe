@@ -1,14 +1,26 @@
-<div class="container">
+<div class="banner img-fluid" style="background-image: url('https://th.bing.com/th/id/R.c6fc6d54a474f5b2c1ff8f460c14a481?rik=lSe2pXfVxAufXw&pid=ImgRaw&r=0');">
+  <h1>Welcome to EquipMe!</h1>
+</div>
+
+
+<div class="container col-8 p-3">
+
+<h2>Check the items</h2>
+<div class="d-flex flex-row flex-wrap p-3">
 
 <% @items.each do |item| %>
-  <div class="card">
-    <img src="https://th.bing.com/th/id/OIP.tAZtpLwas9yqBLsTpL9-5QHaEK?rs=1&pid=ImgDetMain" alt="<%= item.name %>">
-    <div class="card-body">
-      <h5 class="card-title"><%= item.name %></h5>
-      <p class="card-text">Price: <%= item.price %>€</p>
+  <div class="card m-1 col-3 border rounded-4 shadow-sm">
+    <img src="https://th.bing.com/th/id/OIP.tAZtpLwas9yqBLsTpL9-5QHaEK?rs=1&pid=ImgDetMain" alt="<%= item.name %>" class= "rounded-top-4">
+      <div class="card-body rounded-bottom">
+        <div class="d-flex justify-content-between">
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-text"><%= item.price %>€</p>
+        </div>
       <p class="card-text">Availability: <%= item.availability %></p>
+      <%= link_to "show details", item_path(item), class: "btn btn-primary" %>
+      </div>
     </div>
-  </div>
-<% end %>
 
+<% end %>
+</div>
 </div>
