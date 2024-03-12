@@ -1,5 +1,5 @@
-<div class="container">
-<h2>Check these Items</h2>
+<div class="container d-flex">
+
 <% @items.each do |item| %>
   <div class="card">
     <img src="<%= item.image_url %>" alt="<%= item.name %>">
@@ -10,4 +10,26 @@
     </div>
   </div>
 <% end %>
+
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.tAZtpLwas9yqBLsTpL9-5QHaEK?rs=1&pid=ImgDetMain" alt="shoe">
+    <div class="card-body">
+      <h5 class="card-title">Shoe</h5>
+      <p class="card-text">Price: 15$</p>
+      <p class="card-text">Availability: Available</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.tAZtpLwas9yqBLsTpL9-5QHaEK?rs=1&pid=ImgDetMain" alt="shoe">
+    <div class="card-body">
+      <h5 class="card-title">Shoe</h5>
+      <p class="card-text">Price: 15$</p>
+      <p class="card-text">Availability: Available</p>
+    </div>
+  </div>
+
+
+
 </div>
