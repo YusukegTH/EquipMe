@@ -1,0 +1,27 @@
+<div class="navbar sticky-top p-0 w-100 bg-white mx-auto border-bottom border-3 d-flex justify-content-between align-items-stretch">
+  <% if user_signed_in? %>
+    <%= link_to new_item_path, :class => "text-decoration-none text-black" do %>
+      <div class="p-3 rounded d-flex align-items-center justify-content-center">Add an item</div>
+    <% end %>
+    <%= link_to root_path, :class => "text-decoration-none text-black fw-bold" do %>
+      <div class="p-3 rounded d-flex align-items-center justify-content-center">EquipMe</div>
+    <% end %>
+    <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, :class => "text-decoration-none text-black" do %>
+      <div class="p-3 border-end rounded d-flex align-items-center justify-content-center">Logout</div>
+    <% end %>
+
+  <% else %>
+    <%= link_to new_user_session_path, :class => "text-decoration-none text-black" do %>
+      <div class="p-3 border-end rounded d-flex align-items-center justify-content-center">Login</div>
+    <% end %>
+
+    <%= link_to root_path, :class => "text-decoration-none text-black fw-bold" do %>
+      <div class="p-3 rounded d-flex align-items-center justify-content-center">EquipMe</div>
+    <% end %>
+
+    <%= link_to new_user_registration_path, :class => "text-decoration-none text-black" do %>
+      <div class="p-3 border-start rounded d-flex align-items-center justify-content-center">Sign up</div>
+    <% end %>
+  <% end %>
+
+</div>
