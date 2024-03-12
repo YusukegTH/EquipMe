@@ -3,10 +3,11 @@
 <% @items.each do |item| %>
   <div class="card">
     <img src="https://th.bing.com/th/id/OIP.tAZtpLwas9yqBLsTpL9-5QHaEK?rs=1&pid=ImgDetMain" alt="<%= item.name %>">
-    <div class="card-body">
+    <div class="card-body rounded">
       <h5 class="card-title"><%= item.name %></h5>
       <p class="card-text">Price: <%= item.price %>€</p>
       <p class="card-text">Availability: <%= item.availability %></p>
+      <%= link_to "show details", item_path(item) %>
     </div>
   </div>
 <% end %>
