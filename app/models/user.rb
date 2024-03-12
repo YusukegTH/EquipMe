@@ -5,11 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :bookings
+  has_many :items, dependent: :destroy
 
   validates :email, presence: true
   validates :password, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-
-  has_many :items, dependent: :destroy
 end
