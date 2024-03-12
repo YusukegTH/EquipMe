@@ -1,6 +1,6 @@
 <h1>Item Details</h1>
 
-<div class="card">
+<div class="card m-3">
   <h2><%= @item.name %></h2>
   <p><strong>Price:</strong> <%= @item.price %>€</p>
   <p><strong>Description:</strong> <%= @item.description %></p>
@@ -12,3 +12,4 @@
 </div>
 
 <%= link_to "back to items", root_path, class: "btn btn-primary" %>
+<%= link_to "Create New Item", new_item_path, class: "btn btn-success" %>
