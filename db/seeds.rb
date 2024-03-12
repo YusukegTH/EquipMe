@@ -32,7 +32,7 @@ end
     availability: [true, false].sample,
     address: "Address #{i + 1}",
     description: "Description #{i + 1}",
-    user_email_prefix: user_email_prefix
+    user: user
   }
 
   user = User.find_by(email: "#{user_email_prefix}@example.com")
