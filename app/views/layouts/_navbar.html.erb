@@ -1,19 +1,27 @@
-<div class="navbar">
-  <div class="navbar__container">
-    <div class="navbar__logo">
-      <a href="/">EquipMe</a>
-    </div>
-    <div class="navbar__links">
-      <% if user_signed_in? %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path %>
-        <%= link_to "Sign up", new_user_registration_path %>
-      <% end %>
-    </div>
-  </div>
-</div>
+<div class="navbar sticky-top p-0 w-100 bg-white mx-auto border-bottom border-3 d-flex justify-content-between align-items-stretch">
+  <% if user_signed_in? %>
+    <%= link_to new_item_path, :class => "text-decoration-none text-black" do %>
+      <div class="p-3 rounded d-flex align-items-center justify-content-center">Add an item</div>
+    <% end %>
+    <%= link_to root_path, :class => "text-decoration-none text-black fw-bold" do %>
+      <div class="p-3 rounded d-flex align-items-center justify-content-center">EquipMe</div>
+    <% end %>
+    <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, :class => "text-decoration-none text-black" do %>
+      <div class="p-3 border-end rounded d-flex align-items-center justify-content-center">Logout</div>
+    <% end %>
 
-<p> <%= user_signed_in? %> </p>
-<p> <%= current_user %> </p>
-<p>navabar</p>
+  <% else %>
+    <%= link_to new_user_session_path, :class => "text-decoration-none text-black" do %>
+      <div class="p-3 border-end rounded d-flex align-items-center justify-content-center">Login</div>
+    <% end %>
+
+    <%= link_to root_path, :class => "text-decoration-none text-black fw-bold" do %>
+      <div class="p-3 rounded d-flex align-items-center justify-content-center">EquipMe</div>
+    <% end %>
+
+    <%= link_to new_user_registration_path, :class => "text-decoration-none text-black" do %>
+      <div class="p-3 border-start rounded d-flex align-items-center justify-content-center">Sign up</div>
+    <% end %>
+  <% end %>
+
+</div>
