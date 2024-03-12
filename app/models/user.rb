@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :items, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 
 
   validates :email, presence: true

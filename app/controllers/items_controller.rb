@@ -3,9 +3,11 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @items = Item.all
   end
 
   def show
+    
   end
 
   def new
@@ -24,9 +26,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to @item, notice: 'Item was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -40,4 +48,12 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :description, :picture, :availability)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+end
+
+def set_item
+  @item = Item.find(params[:id])
 end

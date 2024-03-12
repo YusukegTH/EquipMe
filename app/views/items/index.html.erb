@@ -1,0 +1,14 @@
+<div class="container">
+
+<% @items.each do |item| %>
+  <div class="card">
+    <img src="https://th.bing.com/th/id/OIP.tAZtpLwas9yqBLsTpL9-5QHaEK?rs=1&pid=ImgDetMain" alt="<%= item.name %>">
+    <div class="card-body">
+      <h5 class="card-title"><%= item.name %></h5>
+      <p class="card-text">Price: <%= item.price %>€</p>
+      <p class="card-text">Availability: <%= item.availability %></p>
+    </div>
+  </div>
+<% end %>
+
+</div>
