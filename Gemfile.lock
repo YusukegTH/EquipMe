@@ -127,11 +127,10 @@ GEM
     error_highlight (0.6.0)
     erubi (1.12.0)
     execjs (2.9.1)
-    faker (3.2.3)
-      i18n (>= 1.8.11, < 2)
     ffi (1.16.3)
     font-awesome-sass (6.5.1)
       sassc (~> 2.0)
+    geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.4)
@@ -171,16 +170,6 @@ GEM
     net-smtp (0.4.0.1)
       net-protocol
     nio4r (2.7.0)
-    nokogiri (1.16.2-aarch64-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.2-arm-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.2-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.2-x86-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.2-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -289,11 +278,6 @@ GEM
     zeitwerk (2.6.13)
 
 PLATFORMS
-  aarch64-linux
-  arm-linux
-  arm64-darwin
-  x86-linux
-  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
@@ -305,8 +289,8 @@ DEPENDENCIES
   devise
   dotenv-rails
   error_highlight (>= 0.4.0)
-  faker
   font-awesome-sass (~> 6.1)
+  geocoder
   importmap-rails
   jbuilder
   pg (~> 1.1)

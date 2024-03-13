@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
+# Faker gem
+gem "faker"
+
 # Authentification
 gem "devise"
 
@@ -52,6 +55,9 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
+
+# Geomap Gem
+gem "geocoder"
 
 group :development, :test do
   gem "dotenv-rails"
