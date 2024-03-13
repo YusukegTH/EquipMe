@@ -4,6 +4,7 @@ Booking.destroy_all
 User.destroy_all
 Item.destroy_all
 
+
 10.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
@@ -26,6 +27,8 @@ Item.destroy_all
     }
 
     item = Item.create!(item_attributes)
+
+    item.picture.attach(io: URI.open(Faker::LoremFlickr.image(size: "300x300")), filename: 'OIP.jpg')
     item.save
 
     booking_attributes = {
