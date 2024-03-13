@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
+gem "mapbox-sdk", ">= 2.3.0"
+
 # Faker gem
 gem "faker"
 
