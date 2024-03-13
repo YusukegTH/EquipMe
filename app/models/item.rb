@@ -6,7 +6,7 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
 
-  geocoded_by :location
+  geocoded_by :address
   after_validation :geocode
 
   def delete_with_associations

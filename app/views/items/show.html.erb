@@ -11,6 +11,14 @@
 
 </div>
 
+<div id="map" style="height: 400px; width: 100%;"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    initMap(<%= @item.latitude %>, <%= @item.longitude %>);
+  });
+</script>
+
 <%= link_to "back to items", root_path, class: "btn btn-primary" %>
 <%= link_to "Create New Item", new_item_path, class: "btn btn-success" %>
 <%= link_to "Book Item", new_item_booking_path(@item), class: "btn btn-success" %>
