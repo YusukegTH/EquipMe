@@ -1,6 +1,8 @@
 <h1>Item Details</h1>
 
 <div class="card m-3">
+<div><%= image_tag @item.picture, class: 'card-img-top' %>
+</div>
   <h2><%= @item.name %></h2>
   <p><strong>Price:</strong> <%= @item.price %>€</p>
   <p><strong>Description:</strong> <%= @item.description %></p>
