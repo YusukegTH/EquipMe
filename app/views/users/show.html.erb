@@ -19,15 +19,17 @@
 
 <div class="container my-3">
   <h2>Bookings</h2>
-  <div class="row ">
+  <div class="d-flex flex-row flex-wrap align-items-center justify-content-center p-3">
     <% @bookings.each do |booking| %>
-      <div class="col-4">
-        <div class="card m-3">
-          <p><strong>Item:</strong> <%= booking.item.name %></p>
-          <p><strong>Total price:</strong> <%= booking.item.price %></p>
-          <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete}, class: "btn btn-primary" %>
+      <div class="card m-1 col-3 border rounded-4 shadow-sm">
+        <%= image_tag booking.item.picture, class: 'card-img-top rounded-top-4' %>
+          <div class="card-body rounded-bottom">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title"><%=  booking.item.name %></h5>
+              <p class="card-price"><%=  booking.item.price %>€</p>
+            </div>
+          </div>
         </div>
-      </div>
     <% end %>
 
   </div>
