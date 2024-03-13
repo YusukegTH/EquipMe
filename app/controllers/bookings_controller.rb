@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_item, only: [:index, :create]
+  before_action :set_item, only: [:index, :new, :create]
   before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
@@ -8,11 +8,11 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @booking.user = current_user
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
+    @booking.user = current_user
     @booking.item = @item
     if @booking.save
       redirect_to root_path, notice: 'Booking was successfully created.'
