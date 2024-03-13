@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.item = @item
     if @booking.save
       redirect_to root_path, notice: 'Booking was successfully created.'
     else

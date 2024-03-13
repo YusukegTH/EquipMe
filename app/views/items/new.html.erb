@@ -1,6 +1,8 @@
 <h1>Items</h1>
 
-<%= form_with(model: @item, local: true, html: { multipart: true, class: 'needs-validation' }) do |form| %>
+<% @item.user = current_user %>
+
+<%= form_with url: items_path, data: {turbo_method: :post}, model: @item, local: true, html: { multipart: true, class: 'needs-validation' } do |form| %>
   <% if @item.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
