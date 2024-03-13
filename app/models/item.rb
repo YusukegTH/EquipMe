@@ -6,8 +6,11 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
 
-  geocoded_by :location
-  after_validation :geocode
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
+  attribute :latitude, :float
+  attribute :longitude, :float
 
   def delete_with_associations
     bookings.destroy_all

@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>New booking</h1>
+
+  <h3>Item: <%= @item.name %> </h3>
+  <%= link_to 'Confirm booking', item_bookings_path, data: {turbo_method: :post}, class: 'btn btn-primary mt-3' %>
+
+  <%= link_to 'Back', root_path, class: 'btn btn-secondary mt-3' %>
+</div>

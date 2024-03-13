@@ -1,0 +1,35 @@
+<div class="container my-3">
+<h2>Profile</h2>
+
+  <div class="card m-3">
+    <p><strong>First name:</strong> <%= @user.first_name %></p>
+    <p><strong>Last name:</strong> <%= @user.last_name %></p>
+    <p><strong>Email:</strong> <%= @user.email %></p>
+    <p><strong>Phone number:</strong> <%= @user.phone_number %></p>
+    <!-- Add more item details here if needed -->
+
+  </div>
+
+
+  <%= link_to "Edit info", edit_user_registration_path(@user), class: "btn btn-primary" %>
+  <%= link_to "Delete account", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
+
+</div>
+
+
+<div class="container my-3">
+  <h2>Bookings</h2>
+  <div class="row ">
+    <% @bookings.each do |booking| %>
+      <div class="col-4">
+        <div class="card m-3">
+          <p><strong>Item:</strong> <%= booking.item.name %></p>
+          <p><strong>Total price:</strong> <%= booking.item.price %></p>
+          <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete}, class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>

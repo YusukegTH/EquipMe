@@ -1,44 +1,9 @@
-<h1>Items</h1>
 
-<%= form_with(model: @item, local: true, html: { multipart: true, class: 'needs-validation' }) do |form| %>
-  <% if @item.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<div class="container">
+  <h1>New item</h1>
 
-    <ul>
-    <% @item.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% @item.user = current_user %>
+  <%= @item.user%>
+  <%= render partial: "items/new_form" %>
 
-  <div class="mb-3">
-    <%= form.label :name, class: 'form-label' %>
-    <%= form.text_field :name, class: 'form-control' %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :description, class: 'form-label' %>
-    <%= form.text_area :description, class: 'form-control' %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :location, class: 'form-label' %>
-    <%= form.text_field :location, class: 'form-control' %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :picture, class: 'form-label' %>
-    <%= form.file_field :picture, class: 'form-control' %>
-  </div>
-
-  <div class="mb-3 form-check">
-    <%= form.check_box :availability, class: 'form-check-input' %>
-    <%= form.label :availability, class: 'form-check-label' %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %>
-  </div>
-<% end %>
+</div>
