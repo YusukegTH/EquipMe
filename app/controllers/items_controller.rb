@@ -27,6 +27,8 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @latitude = @item.latitude
+    @longitude = @item.longitude
   end
 
   def update
