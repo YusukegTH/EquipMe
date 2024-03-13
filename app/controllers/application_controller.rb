@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(User)
       # Redirect to different paths based on the user's role
-        root_path
+      root_path
     else
       # Default path for other scopes (e.g., admin)
       super
