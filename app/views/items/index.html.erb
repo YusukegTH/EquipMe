@@ -9,7 +9,6 @@
 <% @items.each do |item| %>
   <div class="card m-1 col-3 border rounded-4 shadow-sm">
     <%= image_tag item.picture, class: 'card-img-top rounded-top-4' %>
-    </a>
       <div class="card-body rounded-bottom">
         <div class="d-flex justify-content-between">
           <h5 class="card-title"><%= item.name %></h5>
@@ -20,8 +19,8 @@
         <%= link_to "Book item", new_item_booking_path(item), data: {turbo_method: :get}, class: "btn btn-primary" %>
       </div>
       </div>
+      <% end %>
     </div>
 
-<% end %>
-</div>
+
 </div>

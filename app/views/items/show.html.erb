@@ -3,18 +3,17 @@
 <h1 class='m-3'>Item Details</h1>
 
 <div class="card m-3 rounded-4 shadow-sm">
-
   <%= image_tag @item.picture, class: 'card-img-top rounded-top-4' %>
   <h2 class='m-3'><%= @item.name %></h2>
   <div class='content-show d-flex wrap justify-content-around'>
-  <p><strong>Price:</strong> <%= @item.price %>€</p>
-  <p><strong>Description:</strong> <%= @item.description %></p>
-  <p><strong>Adress:</strong> <%= @item.address %></p>
-  <p><strong>Category:</strong> <%= @item.category %></p>
-  <p><strong>Availability:</strong> <%= @item.availability %></p>
+    <p><strong>Price:</strong> <%= @item.price %>€</p>
+    <p><strong>Description:</strong> <%= @item.description %></p>
+    <p><strong>Adress:</strong> <%= @item.address %></p>
+    <p><strong>Category:</strong> <%= @item.category %></p>
+    <p><strong>Availability:</strong> <%= @item.availability %></p>
   <!-- Add more item details here if needed -->
 </div>
-  
+
 
 <div id="map" style="height: 400px; width: 100%;"></div>
 
@@ -32,5 +31,6 @@
 <%= link_to "back to items", root_path, class: "btn btn-primary rounded-4" %>
 <%= link_to "Create New Item", new_item_path, class: "btn btn-success rounded-4" %>
 <%= link_to "Book Item", new_item_booking_path(@item), class: "btn btn-success" %>
+</div>
 </div>
 </div>
