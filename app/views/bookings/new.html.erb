@@ -1,8 +1,22 @@
-<div class="container">
+<div class="container text-center">
   <h1>New booking</h1>
 
-  <h3>Item: <%= @item.name %> </h3>
-  <%= link_to 'Confirm booking', item_bookings_path, data: {turbo_method: :post}, class: 'btn btn-primary mt-3' %>
+  <div class="d-flex flex-column align-items-center">
+    <div class="card m-1 col-3 border rounded-4 shadow-sm">
+      <%= image_tag @item.picture, class: 'card-img-top rounded-top-4' %>
+      <div class="card-body rounded-bottom">
+        <div class="d-flex justify-content-between">
+          <h5 class="card-title"><%= @item.name %></h5>
+          <p class="card-price"><%= @item.price %>€</p>
+        </div>
+        <p class="card-availibitly">Availability: <%= @item.availability %></p>
+      </div>
+    </div>
 
-  <%= link_to 'Back', root_path, class: 'btn btn-secondary mt-3' %>
+  </div>
+
+    <div>
+      <%= link_to 'Confirm booking', item_bookings_path, data: {turbo_method: :post}, class: 'btn btn-primary mt-3' %>
+      <%= link_to 'Back', root_path, class: 'btn btn-secondary mt-3' %>
+    </div>
 </div>
