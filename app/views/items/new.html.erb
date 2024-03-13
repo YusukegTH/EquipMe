@@ -3,29 +3,7 @@
   <h1>New item</h1>
 
   <% @item.user = current_user %>
-  <%= @item.user.id%>
+  <%= @item.user%>
+  <%= render partial: "items/new_form" %>
 
-  <div class="mb-3">
-    <%= form.label :name, class: 'form-label' %>
-    <%= form.text_field :name, class: 'form-control' %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :description, class: 'form-label' %>
-    <%= form.text_area :description, class: 'form-control' %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :picture, class: 'form-label' %>
-    <%= form.file_field :picture, class: 'form-control' %>
-  </div>
-
-  <div class="mb-3 form-check">
-    <%= form.check_box :availability, class: 'form-check-input' %>
-    <%= form.label :availability, class: 'form-check-label' %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %>
-  </div>
-<% end %>
+</div>
