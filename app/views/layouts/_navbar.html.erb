@@ -6,9 +6,14 @@
     <%= link_to root_path, :class => "text-decoration-none text-black fw-bold" do %>
       <div class="p-3 rounded d-flex align-items-center justify-content-center">EquipMe</div>
     <% end %>
-    <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, :class => "text-decoration-none text-black" do %>
-      <div class="p-3 border-end rounded d-flex align-items-center justify-content-center">Logout</div>
-    <% end %>
+    <div class="d-flex">
+      <%= link_to user_path(current_user), :class => "text-decoration-none text-black" do %>
+        <div class="p-3 border-end rounded d-flex align-items-center justify-content-center">Profile</div>
+      <% end %>
+      <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, :class => "text-decoration-none text-black" do %>
+        <div class="p-3 border-end rounded d-flex align-items-center justify-content-center">Logout</div>
+      <% end %>
+    </div>
 
   <% else %>
     <%= link_to new_user_session_path, :class => "text-decoration-none text-black" do %>

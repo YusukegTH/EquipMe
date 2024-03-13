@@ -6,7 +6,7 @@
   <div class='content-show d-flex wrap justify-content-around'>
   <p><strong>Price:</strong> <%= @item.price %>€</p>
   <p><strong>Description:</strong> <%= @item.description %></p>
-  <p><strong>Adress:</strong> <%= @item.adress %></p>
+  <p><strong>Adress:</strong> <%= @item.address %></p>
   <p><strong>Category:</strong> <%= @item.category %></p>
   <p><strong>Availability:</strong> <%= @item.availability %></p>
   <!-- Add more item details here if needed -->
@@ -23,3 +23,4 @@
 
 <%= link_to "back to items", root_path, class: "btn btn-primary" %>
 <%= link_to "Create New Item", new_item_path, class: "btn btn-success" %>
+<%= link_to "Book Item", new_item_booking_path(@item), class: "btn btn-success" %>
