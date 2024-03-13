@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:new, :index, :show]
 
   def index
     @items = Item.all
@@ -46,14 +46,10 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :picture, :availability)
+    params.require(:item).permit(:name, :description, :picture, :availability, :address, :location, :price, :category, :user_id)
   end
 
   def set_item
     @item = Item.find(params[:id])
   end
-end
-
-def set_item
-  @item = Item.find(params[:id])
 end
