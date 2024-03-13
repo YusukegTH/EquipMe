@@ -1,7 +1,9 @@
 <h1>Item Details</h1>
 
-<div class="card m-3">
+<div class="card col-6 m-3 rounded-4 shadow-sm">
+  <%= image_tag @item.picture, class: 'card-img-top rounded-top-4' %>
   <h2><%= @item.name %></h2>
+  <div class='content-show d-flex wrap justify-content-around'>
   <p><strong>Price:</strong> <%= @item.price %>€</p>
   <p><strong>Description:</strong> <%= @item.description %></p>
   <p><strong>Adress:</strong> <%= @item.address %></p>
@@ -9,13 +11,20 @@
   <p><strong>Availability:</strong> <%= @item.availability %></p>
   <!-- Add more item details here if needed -->
 </div>
+  
 
 <div id="map" style="height: 400px; width: 100%;"></div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var latitude = <%= @item.latitude %>;
-    var longitude = <%= @item.longitude %>;
+    const latitude = <%= @item.latitude %>;
+    const longitude = <%= @item.longitude %>;
     initMap(latitude, longitude);
   });
 </script>
+
+
+<%= link_to "back to items", root_path, class: "btn btn-primary" %>
+<%= link_to "Create New Item", new_item_path, class: "btn btn-success" %>
+<%= link_to "Book Item", new_item_booking_path(@item), class: "btn btn-success" %>
+
