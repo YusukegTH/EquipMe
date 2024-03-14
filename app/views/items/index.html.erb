@@ -1,4 +1,16 @@
 <div class="banner img-fluid" style="background-image: url('https://th.bing.com/th/id/R.c6fc6d54a474f5b2c1ff8f460c14a481?rik=lSe2pXfVxAufXw&pid=ImgRaw&r=0');">
+  <div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
   <h1>Welcome to EquipMe!</h1>
 </div>
 
