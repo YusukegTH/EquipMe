@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.item = @item
     if @booking.save
-      redirect_to root_path, notice: 'Booking was successfully created.'
+      redirect_to user_path(current_user), notice: 'Booking was successfully created.'
     else
       render :new
     end
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to root_path, notice: 'Booking was successfully updated.'
+      redirect_to user_path(current_user), notice: 'Booking was successfully updated.'
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to root_path, notice: 'Booking was successfully deleted.'
+    redirect_to user_path(current_user), notice: 'Booking was successfully deleted.'
   end
 
   private
