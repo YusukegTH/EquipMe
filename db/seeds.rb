@@ -28,7 +28,7 @@ Item.destroy_all
 
     item = Item.create!(item_attributes)
 
-    item.picture.attach(io: URI.open(Faker::LoremFlickr.image(size: "300x300")), filename: 'OIP.jpg')
+    item.picture.attach(io: URI.open(Faker::LoremFlickr.image(size: "320x340")), filename: 'OIP.jpg')
     item.save
 
     booking_attributes = {
