@@ -8,7 +8,7 @@
   display:grid
 }
 
-.card-body {
+.card-elements {
   background-color: $black;
   color: $white
 }
@@ -28,5 +28,6 @@
 }
 
 .item-card:hover {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  ;
 }
