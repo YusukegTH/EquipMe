@@ -1,21 +1,38 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus";
 import mapboxgl from "mapbox-gl";
 
 export default class extends Controller {
   static targets = ["map"];
+  static values = { markers: Array }
 
   connect() {
-    mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
-    const latitude = parseFloat(this.data.get("latitude"));
-    const longitude = parseFloat(this.data.get("longitude"));
+    const MAPBOX_API_KEY = this.mapTarget.dataset.mapboxApiKey;
 
-    const map = new mapboxgl.Map({
+    mapboxgl.accessToken = MAPBOX_API_KEY;
+    this.map = new mapboxgl.Map({
       container: this.mapTarget,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [longitude, latitude],
-      zoom: 14
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [0, 0],
+      zoom: 5
     });
 
-    new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map);
+    this.addMarkersToMap();
+    this.setMapCenter();
+  }
+
+  addMarkersToMap() {
+    this.markersValue.forEach((marker) => {
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(this.map);
+    });
+  }
+
+  setMapCenter() {
+    if (this.markersValue.length > 0) {
+      const firstMarker = this.markersValue[0];
+      this.map.setCenter([firstMarker.lng, firstMarker.lat]);
+    }
   }
 }
+
