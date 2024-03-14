@@ -44,7 +44,9 @@ end
 
     booking_attributes = {
       user: user,
-      item: item
+      item: item,
+      start_date: Faker::Date.between(from: Date.today, to: 1.month.from_now),
+      end_date: Faker::Date.between(from: 1.month.from_now, to: 2.months.from_now)
     }
 
     booking = Booking.create!(booking_attributes)
