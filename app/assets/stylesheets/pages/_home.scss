@@ -1,14 +1,6 @@
 // Specific CSS for your home-page
-.card-title {
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
-  text-overflow: ellipsis;
+.card-img-top {
+  height: 330px;
+  object-fit: cover;
 }
 
-
-.card:hover {
-  box-shadow: 0 0.5em 1.5em -0.4em var(--hover);
-  transform: translateY(-0.25em);
-  transition: all 0.6s ease-in-out;
-}
