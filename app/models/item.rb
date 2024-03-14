@@ -13,6 +13,11 @@ class Item < ApplicationRecord
   has_one_attached :picture
 
   validates :name, presence: true
+  validates :description, presence: true
+  validates :price, presence: true
+  validates :category, presence: true
+  validates :address, presence: true
+  validates :picture, presence: true
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
