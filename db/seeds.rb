@@ -13,7 +13,7 @@ def geocode_address(address)
   end
 end
 
-10.times do
+3.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -39,7 +39,7 @@ end
     }
 
     item = Item.create!(item_attributes)
-    item.picture.attach(io: URI.open(Faker::LoremFlickr.image(size: "300x300")), filename: 'OIP.jpg')
+    item.picture.attach(io: URI.open(Faker::LoremFlickr.image(size: "300x240", search_terms: ["#{item.name.split[-2]}", "#{item.name.split.last}"])), filename: 'sports.jpg', content_type: 'image/jpg')
     item.save
 
     booking_attributes = {
