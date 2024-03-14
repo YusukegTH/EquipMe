@@ -12,7 +12,7 @@ export default class extends Controller {
       container: this.mapTarget,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [0, 0],
-      zoom: 2
+      zoom: 5
     });
 
     this.addPinToMap();
