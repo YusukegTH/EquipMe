@@ -14,6 +14,13 @@
     </div>
 
   </div>
+  <div class="d-flex flex-column align-items-center">
+    <%= simple_form_for [@item, @booking] do |f| %>
+      <%= f.input :start_date, as: :string, input_html: { data: { controller: 'datepicker' } }  %>
+      <%= f.input :end_date, as: :string, input_html: { data: { controller: 'datepicker' } } %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
 
     <div>
       <%= link_to 'Confirm booking', item_bookings_path, data: {turbo_method: :post}, class: 'btn btn-primary mt-3' %>
