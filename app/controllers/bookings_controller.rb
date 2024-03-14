@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.item = @item
     if @booking.save
@@ -48,6 +48,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:booking_details)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
