@@ -1,9 +1,13 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:new, :index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @items = Item.all
+
+    if params[:query].present?
+      @items = Item.search_by_name_and_description(params[:query])
+    end
   end
 
   def show
@@ -17,7 +21,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.availability = true
-    @item.picture.attach(params[:item][:picture]) if params[:item][:picture]
+    @item.user = current_user
     if @item.save
       redirect_to item_path(@item), notice: "Item was successfully created."
     else
@@ -27,6 +31,8 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @latitude = @item.latitude
+    @longitude = @item.longitude
   end
 
   def update
@@ -46,7 +52,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :picture, :availability, :address, :location, :price, :category, :user_id)
+    params.require(:item).permit(:name, :description, :picture, :availability, :address, :location, :price, :category)
   end
 
   def set_item

@@ -1,21 +1,36 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus";
 import mapboxgl from "mapbox-gl";
 
 export default class extends Controller {
   static targets = ["map"];
 
   connect() {
-    mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
-    const latitude = parseFloat(this.data.get("latitude"));
-    const longitude = parseFloat(this.data.get("longitude"));
+    const MAPBOX_API_KEY = this.mapTarget.dataset.mapboxApiKey;
 
-    const map = new mapboxgl.Map({
+    mapboxgl.accessToken = MAPBOX_API_KEY;
+    this.map = new mapboxgl.Map({
       container: this.mapTarget,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [longitude, latitude],
-      zoom: 14
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [0, 0],
+      zoom: 5
     });
 
-    new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map);
+    this.addPinToMap();
+  }
+
+  async addPinToMap() {
+    const response = await fetch('https://restcountries.com/v3.1/all');
+    const countries = await response.json();
+
+    const randomCountry = countries[Math.floor(Math.random() * countries.length)];
+
+    const lng = randomCountry.latlng[1];
+    const lat = randomCountry.latlng[0];
+
+    this.map.setCenter([lng, lat]);
+
+    new mapboxgl.Marker()
+      .setLngLat([lng, lat])
+      .addTo(this.map);
   }
 }

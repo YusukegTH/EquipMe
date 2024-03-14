@@ -1,11 +1,60 @@
-
 .banner {
-  height: 600px;
-  text-align: center;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: image-url('sports_banner_image.jpg');
+  background-size: cover;
+  background-position: center -450px;
+  min-height: 700px;
+  background-repeat: no-repeat;
 
-.banner h1 {
-  font-size: 50px;
-  padding-top: 300px;
-  color: $white;
+  .banner-content {
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1 {
+    color: white;
+    margin-bottom: 0.5em;
+  }
+
+  .form-control {
+    margin-right: 10px;
+  }
+
+  .search-form {
+    display: flex;
+    position: relative;
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: 1em;
+    padding-right: 2.5em;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+
+  }
+
+  .search-button {
+    background-attachment: fixed;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    border: 0;
+    background: transparent;
+    color: #46B7F6;
+    padding: 0 10px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+
+    .fa-search {
+      font-size: 1em;
+    }
+  }
 }

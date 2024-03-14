@@ -1,0 +1,94 @@
+.item-details-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.item-details-left,
+.item-details-right {
+  flex: 1;
+}
+
+.item-details-left {
+  padding: 20px;
+}
+
+.item-details-right {
+  padding: 20px;
+  margin-left: 5px;
+  margin-top: 10%;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  height: 40%;
+}
+
+.item-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.item-details p {
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.item-details .price {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.item-details .availability {
+  font-weight: bold;
+  color: green;
+}
+
+.item-details .book-now-btn {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.item-details .book-now-btn a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.item-details .book-now-btn a:hover {
+  background-color: #218838;
+}
+
+.image-container {
+  width: 200%;
+  height: 400px;
+  overflow: hidden;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.image-container img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+.item-details-right .card-text {
+  display: inline-block;
+  margin-right: 10px;
+  color: #666;
+}
+
+.card {
+  border: none;
+}
+
+.item-details-center {
+ width: 30%;
+ }
