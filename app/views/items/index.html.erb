@@ -18,9 +18,8 @@
       <h1 class="text-center">Welcome to EquipMe</h1>
     </div>
   </div>
-</div>
+</div> <!-- Removed extra closing div tag here -->
 
-</div>
 <% if params[:query].present? %>
   <% if @items.present? %>
     <h1 class="text-center">Search Results</h1>
@@ -50,29 +49,26 @@
     </div>
   <% end %>
 <% else %>
-<div class="p-3 m-4"> <h2 class="m-0">Check the Items</h2></div>
-<div class="container-fluid d-flex flex-wrap justify-content p-3">
-      <% @items.each do |item| %>
-        <div class="space p-3">
+  <div class="p-3 m-4"> <h2 class="m-0">Check the Items</h2></div>
+  <div class="container-fluid d-flex flex-wrap justify-content p-3">
+    <% @items.each do |item| %>
+      <div class="space p-3">
         <div class="item-card rounded-4">
-            <div><%= image_tag item.picture, class: 'card-img-top rounded-top-4' %> </div>
-            <div class="card-body p-2 rounded-bottom-4">
-              <div class="d-flex justify-content-between p-1">
-                <p class="card-title"><%= item.name %></p>
-                <p class="card-price"><%= item.price %>€</p>
-              </div>
-              <div class="d-flex justify-content-between p-1">
-               <p class="card-user m-1"> From <%=item.user.first_name%></p>
-                <p class="card-availibitly m-1"><%= item.availability %></p>
-              </div>
-        </div>
-
-
-
-            <%# <%= link_to "show details", item_path(item), class: "btn btn-primary rounded-4" %>
-            <%# <%= link_to "Book item", new_item_booking_path(item), data: {turbo_method: :get}, class: "btn btn-primary" %>
+          <div><%= image_tag item.picture, class: 'card-img-top rounded-top-4' %> </div>
+          <div class="card-body p-2 rounded-bottom-4">
+            <div class="d-flex justify-content-between p-1">
+              <p class="card-title"><%= item.name %></p>
+              <p class="card-price"><%= item.price %>€</p>
             </div>
+            <div class="d-flex justify-content-between p-1">
+              <p class="card-user m-1"> From <%=item.user.first_name%></p>
+              <p class="card-availibitly m-1"><%= item.availability %></p>
+            </div>
+          </div>
+          <%# <%= link_to "show details", item_path(item), class: "btn btn-primary rounded-4" %>
+          <%# <%= link_to "Book item", new_item_booking_path(item), data: {turbo_method: :get}, class: "btn btn-primary" %>
         </div>
-      <% end %>
-
-</div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
