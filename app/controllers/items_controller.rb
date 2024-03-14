@@ -4,6 +4,10 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+
+    if params[:query].present?
+      @items = Item.search_by_name_and_description(params[:query])
+    end
   end
 
   def show
@@ -27,6 +31,8 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @latitude = @item.latitude
+    @longitude = @item.longitude
   end
 
   def update
