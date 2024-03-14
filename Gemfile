@@ -64,7 +64,7 @@ gem "sassc-rails"
 gem "geocoder"
 
 group :development, :test do
-  gem "dotenv-rails"
+ gem 'dotenv-rails', groups: [:development, :test]
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
 end

@@ -1,5 +1,8 @@
 window.initMap = function(lat, lng) {
-  mapboxgl.accessToken = 'pk.eyJ1IjoibG9yZW56b2JjMjAyMyIsImEiOiJjbHBqdWp6aTYwMzNzMmpteXp6MDVoYzkyIn0.Cj9LGQ3Fm3jTAHCpHFuc1g';
+  const mapboxgl = require('mapbox-gl');
+  const MAPBOX_API_KEY = process.env.MAPBOX_API_KEY;
+
+  mapboxgl.accessToken = MAPBOX_API_KEY;
 
   var map = new mapboxgl.Map({
     container: 'map',
