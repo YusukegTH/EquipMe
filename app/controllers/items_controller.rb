@@ -1,17 +1,16 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_item, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @items = Item.all
 
-    if params[:query].present?
-      @items = Item.search_by_name_and_description(params[:query])
-    end
+    return unless params[:query].present?
+
+    @items = Item.search_by_name_and_description(params[:query])
   end
 
   def show
-
   end
 
   def new

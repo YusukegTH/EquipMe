@@ -23,7 +23,7 @@
 </div>
 <% if params[:query].present? %>
   <% if @items.present? %>
-<div class="p-3 m-4"> <h2 class="m-0">Search Results</h2>
+<div class="p-3 m-4">Search Results</div>
 </div>
 <div class="container-fluid d-flex flex-wrap justify-content p-3">
   <% @items.each do |item| %>
@@ -56,6 +56,7 @@
 <div class="container-fluid d-flex flex-wrap justify-content p-3">
   <% @items.each do |item| %>
     <div class="space p-3">
+    <%= link_to item_path(item) do %>
       <div class="item-card overlay rounded-4">
         <div><%= image_tag item.picture, class: 'card-img-top rounded-top-4' %> </div>
           <div class="card-elements p-2 rounded-bottom-4">
@@ -69,11 +70,12 @@
             </div>
           </div>
       </div>
+      <% end %>
     </div>
   <% end %>
 </div>
 
-<% end %>
+  <% end %>
 
-<%# <%= link_to "show details", item_path(item), class: "btn btn-primary rounded-4" %>
+  <%# <%= link_to "show details", item_path(item), class: "btn btn-primary rounded-4" %>
             <%# <%= link_to "Book item", new_item_booking_path(item), data: {turbo_method: :get}, class: "btn btn-primary" %>
