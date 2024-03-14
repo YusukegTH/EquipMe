@@ -1,27 +1,57 @@
-<div class="banner img-fluid" style="background-image: url('https://th.bing.com/th/id/R.c6fc6d54a474f5b2c1ff8f460c14a481?rik=lSe2pXfVxAufXw&pid=ImgRaw&r=0');">
+<div class="banner img-fluid">
   <div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Type a keyword"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
+    <div class="col-auto my-3">
+      <%= form_with url: root_path, method: :get, local: true, class: "search-form", id: "search-form" do |form| %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control search-input",
+              placeholder: "Type a keyword"
+          %>
+        <%= button_tag(type: 'submit', class: "btn search-button") do %>
+          <i class="fa fa-search"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <h1 class="text-center">Welcome to EquipMe</h1>
+    </div>
   </div>
 </div>
-  <h1>Welcome to EquipMe!</h1>
+
 </div>
-
-
-
+<% if params[:query].present? %>
+  <% if @items.present? %>
+    <h1 class="text-center">Search Results</h1>
+    <div class="container p-3">
+      <div class="d-flex flex-row flex-wrap align-items-center justify-content-center p-3">
+        <% @items.each do |item| %>
+          <div class="card m-1 col-3 border rounded-4 shadow-sm">
+            <%= image_tag item.picture, class: 'card-img-top rounded-top-4' %>
+            <div class="card-body rounded-bottom">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title"><%= item.name %></h5>
+                <p class="card-price"><%= item.price %>€</p>
+              </div>
+              <p class="card-availibitly">Availability: <%= item.availability %></p>
+              <%= link_to "show details", item_path(item), class: "btn btn-primary rounded-4" %>
+              <%= link_to "Book item", new_item_booking_path(item), data: {turbo_method: :get}, class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <h1>No results found</h1>
+      </div>
+    </div>
+  <% end %>
+<% else %>
 <div class="p-3 m-4"> <h2 class="m-0">Check the Items</h2></div>
 <div class="container-fluid d-flex flex-wrap justify-content p-3">
-
-
-
-
       <% @items.each do |item| %>
         <div class="space p-3">
         <div class="item-card rounded-4">
