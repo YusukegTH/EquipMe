@@ -3,7 +3,6 @@ import mapboxgl from "mapbox-gl";
 
 export default class extends Controller {
   static targets = ["map"];
-  static values = { markers: Array }
 
   connect() {
     const MAPBOX_API_KEY = this.mapTarget.dataset.mapboxApiKey;
@@ -13,26 +12,25 @@ export default class extends Controller {
       container: this.mapTarget,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [0, 0],
-      zoom: 5
+      zoom: 2
     });
 
-    this.addMarkersToMap();
-    this.setMapCenter();
+    this.addPinToMap();
   }
 
-  addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .addTo(this.map);
-    });
-  }
+  async addPinToMap() {
+    const response = await fetch('https://restcountries.com/v3.1/all');
+    const countries = await response.json();
 
-  setMapCenter() {
-    if (this.markersValue.length > 0) {
-      const firstMarker = this.markersValue[0];
-      this.map.setCenter([firstMarker.lng, firstMarker.lat]);
-    }
+    const randomCountry = countries[Math.floor(Math.random() * countries.length)];
+
+    const lng = randomCountry.latlng[1];
+    const lat = randomCountry.latlng[0];
+
+    this.map.setCenter([lng, lat]);
+
+    new mapboxgl.Marker()
+      .setLngLat([lng, lat])
+      .addTo(this.map);
   }
 }
-
