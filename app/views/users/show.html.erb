@@ -45,7 +45,7 @@
     <% @bookings.each do |booking| %>
       <div class="space p-3">
           <div class="booking-item-card rounded-4">
-            <div><%= image_tag booking.item.picture, class: 'index-card-img-top rounded-top-4' %> </div>
+            <div><%= cl_image_tag booking.item.picture.key, class: 'index-card-img-top rounded-top-4' %> </div>
             <div class="card-elements p-2 rounded-bottom-4">
               <div class="d-flex justify-content-between p-1">
                 <p class="card-title"><%= booking.item.name %></p>
