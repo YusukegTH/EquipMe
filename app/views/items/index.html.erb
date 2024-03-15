@@ -3,10 +3,10 @@
     <div class="col-auto my-3">
       <%= form_with url: root_path, method: :get, local: true, class: "search-form", id: "search-form" do |form| %>
         <%= text_field_tag :query,
-              params[:query],
-              class: "form-control search-input",
-              placeholder: "Type a keyword"
-          %>
+        params[:query],
+        class: "form-control search-input",
+        placeholder: "Type a keyword"
+        %>
         <%= button_tag(type: 'submit', class: "btn search-button") do %>
           <i class="fa fa-search"></i>
         <% end %>
@@ -19,6 +19,7 @@
     </div>
   </div>
 </div>
+
 
 
 <% if params[:query].present? %>
@@ -43,20 +44,24 @@
                   <p data-controller="availablecolor" data-target="status" class="card-availibitly m-1"><%= item.availability %></p>
                 </div>
               </div>
+
           </div>
         </div>
       <% end %>
     </div>
   <% else %>
+
       <div class="row p-3 m-4"><h2 class="m-0">No results found</h2></div>
   <% end %>
 <% else %>
+
 
 
   <div class="p-3 m-4"> <h2 class="m-0">Check the Items</h2></div>
   <div class="container-fluid d-flex flex-wrap justify-content p-3">
     <% @items.each do |item| %>
       <div class="space p-3">
+
       <%= link_to item_path(item) do %>
         <div class="index-item-card rounded-4">
           <div><%= image_tag item.picture, class: 'index-card-img-top rounded-top-4' %> </div>
@@ -75,5 +80,6 @@
       </div>
     <% end %>
   </div>
+
 
 <% end %>

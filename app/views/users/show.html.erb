@@ -1,46 +1,39 @@
 <div class="container my-3">
-<h2>Profile</h2>
-
-  <div class="card m-3">
-    <p><strong>First name:</strong> <%= @user.first_name %></p>
-    <p><strong>Last name:</strong> <%= @user.last_name %></p>
-    <p><strong>Email:</strong> <%= @user.email %></p>
-    <p><strong>Phone number:</strong> <%= @user.phone_number %></p>
-    <!-- Add more item details here if needed -->
-
+  <h2>Profile</h2>
+  <div class="card m-3 p-3">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>First name:</strong> <%= @user.first_name %></li>
+      <li class="list-group-item"><strong>Last name:</strong> <%= @user.last_name %></li>
+      <li class="list-group-item"><strong>Email:</strong> <%= @user.email %></li>
+      <li class="list-group-item"><strong>Phone number:</strong> <%= @user.phone_number %></li>
+      <!-- Add more item details here if needed -->
+    </ul>
+    <div class="card-body">
+      <%= link_to "Edit info", edit_user_registration_path(@user), class: "btn btn-primary" %>
+      <%= link_to "Delete account", user_registration_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    </div>
   </div>
 
-
-  <%= link_to "Edit info", edit_user_registration_path(@user), class: "btn btn-primary" %>
-  <%= link_to "Delete account", user_registration_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-
-</div>
-
-
-<div class="container my-3">
   <h2>Bookings</h2>
-  <div class="d-flex flex-row flex-wrap align-items-center justify-content-center p-3">
+  <div class="d-flex flex-row flex-wrap align-items-start justify-content-center p-3">
     <% @bookings.each do |booking| %>
       <div class="card m-1 col-3 border rounded-4 shadow-sm">
         <%= image_tag booking.item.picture, class: 'card-img-top rounded-top-4' %>
-          <div class="card-body rounded-bottom">
-            <div class="d-flex justify-content-between">
-              <h5 class="card-title"><%=  booking.item.name %></h5>
-              <p class="card-price"><%=  booking.item.price %>€</p>
-            </div>
-            <div class="d-flex justify-content-between">
-              <p class="card-price"><%=  booking.start_date %></p>
-              <p class="card-price"><%=  booking.end_date %></p>
-            </div>
-            <div class="d-flex justify-content-between">
-              <%= link_to "Edit booking" , edit_booking_path(booking), class: "btn btn-primary" %>
-              <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-primary" %>
-            </div>
-
+        <div class="card-body rounded-bottom">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title"><%=  booking.item.name %></h5>
+            <p class="card-price"><%=  booking.item.price %>€</p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p class="card-price"><%=  booking.start_date %></p>
+            <p class="card-price"><%=  booking.end_date %></p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <%= link_to "Edit booking" , edit_booking_path(booking), class: "btn btn-primary" %>
+            <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-danger" %>
           </div>
         </div>
+      </div>
     <% end %>
-
   </div>
-
 </div>
