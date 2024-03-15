@@ -1,13 +1,13 @@
-<div class="container">
-  <%= simple_form_for(@item) do |f| %>
+<div class="container py-5">
+  <%= simple_form_for(@item, html: { class: 'border p-4 rounded shadow-lg rounded' }) do |f| %>
     <%= f.error_notification %>
-    <%= f.input :name, :label => 'Name of the item' %>
-    <%= f.input :description, :label => 'Description' %>
-    <%= f.input :price, :label => 'Price per day' %>
-    <%= f.input :address, :label => 'Address' %>
-    <%= f.input :category, :label => 'Category' %>
-    <%=f.input :availability, :label => 'Availability', :input_html => { :checked => true } %>
-    <%= f.input :picture, as: :file %>
-    <%= f.submit :class => "btn btn-primary" %>
+    <%= f.input :name, label: 'Name of the item', input_html: { class: 'form-control' } %>
+    <%= f.input :description, label: 'Description', input_html: { class: 'form-control' } %>
+    <%= f.input :price, label: 'Price per day', input_html: { class: 'form-control' } %>
+    <%= f.input :address, label: 'Address', input_html: { class: 'form-control' } %>
+    <%= f.input :category, label: 'Category', input_html: { class: 'form-control' } %>
+    <%= f.input :availability, label: 'Availability', input_html: { checked: true, class: 'form-check-input' } %>
+    <%= f.input :picture, as: :file, input_html: { class: 'form-control-file' } %>
+    <%= f.submit 'Submit', class: 'btn btn-primary mt-3 text-white' %>
   <% end %>
 </div>
