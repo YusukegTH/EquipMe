@@ -4,10 +4,10 @@
   justify-content: center;
   align-items: center;
   background-image: image-url('sports_banner_image.jpg');
-  background-size: cover;
   background-position: center -450px;
   min-height: 700px;
   background-repeat: no-repeat;
+  object-fit: cover;
 
   .banner-content {
     min-height: 700px;
