@@ -1,39 +1,65 @@
-<div class="container my-3">
-  <h2>Profile</h2>
-  <div class="card m-3 p-3">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><strong>First name:</strong> <%= @user.first_name %></li>
-      <li class="list-group-item"><strong>Last name:</strong> <%= @user.last_name %></li>
-      <li class="list-group-item"><strong>Email:</strong> <%= @user.email %></li>
-      <li class="list-group-item"><strong>Phone number:</strong> <%= @user.phone_number %></li>
-      <!-- Add more item details here if needed -->
-    </ul>
-    <div class="card-body">
-      <%= link_to "Edit info", edit_user_registration_path(@user), class: "btn btn-primary" %>
-      <%= link_to "Delete account", user_registration_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+<div class="profile-info-options">
+  <div class="profile-info-card">
+    <div class="profile-info-title">
+      <h2> My Profile</h2>
+    </div>
+    <div class="profile-info-content">
+      <p><b>Name :</b></p>
+      <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></p>
+    </div>
+    <div class="profile-info-content">
+      <p><b>Phone :</b></p>
+      <p><%= @user.phone_number %></p>
+    </div>
+    <div class="profile-info-content">
+      <p><b>Email :</b></p>
+      <p><%= @user.email %></p>
     </div>
   </div>
 
+  <div class="profile-options">
+    <div class="my-3">
+      <%= link_to new_item_path do %>
+        <button class="new-item-button">New item</button>
+      <% end %>
+    </div>
+    <div class="my-3">
+      <%= link_to edit_user_registration_path(@user) do %>
+        <button class="edit-profile-button">Edit Profile</button>
+      <% end %>
+    </div>
+    <div class="my-3">
+      <%= link_to user_registration_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+        <button class="delete-profile-button">Delete Profile</button>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="profile-page-bookings">
   <h2>Bookings</h2>
-  <div class="d-flex flex-row flex-wrap align-items-start justify-content-center p-3">
+  <div class="container-fluid d-flex flex-nowrap justify-content p-3">
     <% @bookings.each do |booking| %>
-      <div class="card m-1 col-3 border rounded-4 shadow-sm">
-        <%= image_tag booking.item.picture, class: 'card-img-top rounded-top-4' %>
-        <div class="card-body rounded-bottom">
-          <div class="d-flex justify-content-between">
-            <h5 class="card-title"><%=  booking.item.name %></h5>
-            <p class="card-price"><%=  booking.item.price %>€</p>
-          </div>
-          <div class="d-flex justify-content-between">
-            <p class="card-price"><%=  booking.start_date %></p>
-            <p class="card-price"><%=  booking.end_date %></p>
-          </div>
-          <div class="d-flex justify-content-between">
-            <%= link_to "Edit booking" , edit_booking_path(booking), class: "btn btn-primary" %>
-            <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+        <div class="space-search p-3">
+          <div class="booking-item-card rounded-4">
+            <div><%= image_tag booking.item.picture, class: 'index-card-img-top rounded-top-4' %> </div>
+            <div class="card-elements p-2 rounded-bottom-4">
+              <div class="d-flex justify-content-between p-1">
+                <p class="card-title"><%= booking.item.name %></p>
+                <p class="card-price"><%= booking.item.price %>€</p>
+              </div>
+              <div class="d-flex justify-content-between p-1">
+                <%= link_to edit_booking_path(booking) do %>
+                  <button class="edit-booking-button">Edit Booking</button>
+                <% end %>
+                <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+                  <button class="delete-booking-button">Delete Booking</button>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
   </div>
 </div>

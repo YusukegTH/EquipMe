@@ -1,0 +1,95 @@
+.profile-info-options {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.profile-info-card {
+  width: 40%;
+  padding: 3rem;
+}
+
+.profile-info-title {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $light-gray;
+
+}
+
+.profile-info-content {
+  padding-top: 1rem;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.profile-options {
+  // width: 200px;
+  padding: 3rem;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+}
+
+.new-item-button {
+  background-color: $blue;
+  color: $white;
+  height: 30px;
+  border-radius: 2px;
+  border: none;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.edit-profile-button {
+  background: none;
+  border: none;
+  padding-left: 0;
+}
+
+.delete-profile-button {
+  background: none;
+  border: none;
+  padding-left: 0;
+}
+
+.edit-profile-button:hover {
+  text-decoration: underline;
+  transition-duration: 0.2s;
+}
+
+.delete-profile-button:hover {
+  text-decoration: underline;
+  transition-duration: 0.2s;
+}
+
+.profile-page-bookings {
+  margin: 1.5rem;
+  padding: 1rem;
+}
+
+.edit-booking-button {
+  background: none;
+  border: none;
+  padding-left: 0;
+  color: $white
+}
+
+.delete-booking-button {
+  background: none;
+  border: none;
+  padding-left: 0;
+  color: $red
+}
+
+.edit-booking-button:hover {
+  color: $blue
+}
+
+.delete-booking-button:hover {
+  color: $white
+}
+
+.booking-item-card {
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
