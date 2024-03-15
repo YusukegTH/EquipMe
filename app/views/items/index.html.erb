@@ -26,13 +26,15 @@
 <% if params[:query].present? %>
 
   <% if @items.present? %>
-    <div class="p-3 m-4"> <h2 class="m-0">Search results:</h2></div>
+    <div class="container-fluid p-3">
+    <div class="p-1 m-2"><h2 class="m-0">Search results:</h2></div>
+    </div>
     <div class="container-fluid d-flex flex-nowrap justify-content p-3">
       <% @items.each do |item| %>
         <div class="space-search p-3">
           <div class="index-item-card rounded-4">
             <%= link_to item_path(item) do %>
-              <div><%= image_tag item.picture, class: 'index-card-img-top rounded-top-2' %> </div>
+              <div><%= image_tag item.picture, class: 'index-card-img-top rounded-top-2' %></div>
             <% end %>
             <div class="card-elements p-2 rounded-bottom-2">
               <div class="d-flex justify-content-between p-1">
@@ -49,15 +51,16 @@
       <% end %>
     </div>
   <% else %>
-
-    <div class="row p-3 m-4"><h2 class="m-0">Sorry! No equpiment found</h2></div>
+    <div class="container-fluid p-3">
+    <div class="p-1 m-2"><h2>Sorry! No equpiment found</h2></div>
+    </div>
   <% end %>
 
 <% else %>
 
 
   <div class="container-fluid p-3">
-  <div class="p-1 m-2"> <h2>Equipment to rent:</h2></div>
+  <div class="p-1 m-2"><h2>Equipment to rent:</h2></div>
   <div class="flexbox d-flex flex-wrap justify-content">
     <% @items.each do |item| %>
       <div class="space p-3">
