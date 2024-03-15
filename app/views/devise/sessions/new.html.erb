@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container py-5 mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          <h2>Log in</h2>
+      <div class="card border-0 shadow-lg">
+        <div class="card-header bg-dark text-white rounded">
+          <h2 class="mb-0">Log in</h2>
         </div>
         <div class="card-body">
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' }) do |f| %>
@@ -22,7 +22,7 @@
               <%= f.input :remember_me, as: :boolean, wrapper_html: { class: 'form-check' }, input_html: { class: 'form-check-input' } if devise_mapping.rememberable? %>
             </div>
             <div class="form-group">
-              <%= f.button :submit, "Log in", class: 'btn btn-primary' %>
+              <%= f.button :submit, "Log in", class: 'btn btn-light btn-block' %>
             </div>
           <% end %>
           <div class="form-group">
@@ -33,5 +33,3 @@
     </div>
   </div>
 </div>
-
-<%= render "devise/shared/links" %>
