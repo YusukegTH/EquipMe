@@ -1,8 +1,9 @@
 require 'faker'
 
 Booking.destroy_all
-User.destroy_all
 Item.destroy_all
+User.destroy_all
+
 
 def geocode_address(address)
   result = Geocoder.search(address).first
