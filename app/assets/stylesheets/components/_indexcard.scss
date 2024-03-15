@@ -1,16 +1,19 @@
-.card-img-top {
+.index-card-img-top {
   height: 300px;
   object-fit: cover;
 }
 
 .space {
-  width: 500px;
-  display:grid
+  max-width: 600px;
+  margin: 0 auto;
 }
 
+.space-search {
+  max-width: 600px;;
+}
 .card-elements {
   background-color: $black;
-  color: $white
+  color: $white;
 }
 
 
@@ -22,12 +25,15 @@
   font-size: 0.6em;
 }
 
-.item-card {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  flex-basis: auto;
+.index-item-card {
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
 }
 
-.item-card:hover {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  ;
+.index-item-card:hover {
+  box-shadow: 0 0 10px 10px rgba(17, 17, 17, 0.5);
+  transition: 0.3s;
+}
+
+a {
+  text-decoration: none;
 }
