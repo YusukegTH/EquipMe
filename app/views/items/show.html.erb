@@ -3,7 +3,7 @@
 
     <div class="item-details-left">
       <div class="image-container">
-        <%= image_tag @item.picture, class: 'img-fluid' %>
+        <%= cl_image_tag @item.picture.key, class: 'img-fluid' %>
       </div>
     </div>
 

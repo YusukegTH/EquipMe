@@ -3,7 +3,7 @@
 
   <div class="d-flex flex-column align-items-center">
     <div class="card m-1 col-3 border rounded-4 shadow-sm">
-      <%= image_tag @booking.item.picture, class: 'card-img-top rounded-top-4' %>
+      <%= cl_image_tag @booking.item.picture.key, class: 'card-img-top rounded-top-4' %>
       <div class="card-body rounded-bottom">
         <div class="d-flex justify-content-between">
           <h5 class="card-title"><%= @booking.item.name %></h5>
