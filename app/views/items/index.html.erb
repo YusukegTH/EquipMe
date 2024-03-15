@@ -66,7 +66,9 @@
       <div class="space p-3">
         <%= link_to item_path(item) do %>
           <div class="index-item-card rounded-4">
+          <% if item.picture.attached? %>
             <div><%= cl_image_tag item.picture.key, class: 'index-card-img-top rounded-top-2' %> </div>
+          <% end %>
             <div class="card-elements p-2 rounded-bottom-2">
               <div class="d-flex justify-content-between p-1">
                 <p class="card-title"><%= item.name %></p>
