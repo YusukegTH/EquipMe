@@ -10,7 +10,7 @@
 }
 
 .item-details-left {
-  padding: 20px;
+  padding: 10px;
 }
 
 .item-details-right {
@@ -67,7 +67,7 @@
 }
 
 .image-container {
-  width: 200%;
+  width: 100%; 
   height: 400px;
   overflow: hidden;
   border-top-left-radius: 4px;
@@ -75,14 +75,9 @@
 }
 
 .image-container img {
-  width: auto;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.item-details-right .card-text {
-  display: inline-block;
-  margin-right: 10px;
-  color: #666;
 }
 
 .card {
@@ -90,5 +85,6 @@
 }
 
 .item-details-center {
- width: 30%;
- }
+  flex: 1;
+  padding: 20px;
+}

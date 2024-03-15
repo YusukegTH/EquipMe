@@ -1,5 +1,5 @@
 <div class='container'>
-  <h1 class='m-3'>Item Details</h1>
+  <h1 class='m-3 pt-5'>Item Details</h1>
   <div class="card m-3 rounded-4 shadow-sm d-flex flex-row">
 
     <div class="item-details-left">
@@ -8,30 +8,25 @@
       </div>
     </div>
 
-
     <div class="item-details-center">
       <div class="card-body">
         <h2 class='card-title text-center'><%= @item.name %></h2>
         <p class="card-text text-center"><strong>Description:</strong> <%= @item.description %></p>
         <p class="card-text text-center"><strong>Category:</strong> <%= @item.category %></p>
+        <div class="text-center">
+          <p><strong>Address:</strong> <%= @item.address %></p>
+          <p><strong>User:</strong> <%= @item.user %></p>
+        </div>
       </div>
-      <div class="item-details-center-bottom">
-  <div class="text-center">~
- <p class="card-text text-center-bottom"><strong>Address:</strong> <%= @item.address %></p>
- <p class="card-text text-center-bottom"><strong>User:</strong><%= @item.user %></p>
     </div>
-  </div>
-    </div>
-
 
     <div class="item-details-right">
       <div class="text-center">
-        <p class="card-text"><strong>Availability:</strong> <%= @item.availability %> <strong>Price:</strong> <%= @item.price %>€</p>
+        <p><strong>Availability:</strong> <%= @item.availability %> <strong>Price:</strong> <%= @item.price %>€</p>
       </div>
       <%= link_to "Book Now", new_item_booking_path(@item), class: "btn btn-success rounded-4 mt-3" %>
     </div>
   </div>
-
 
   <div class="map-container m-3">
     <div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-controller="map" data-map-target="map" style="height: 400px; width: 100%;"></div>
