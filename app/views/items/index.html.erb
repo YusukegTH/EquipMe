@@ -1,6 +1,7 @@
-<div class="banner img-fluid">
+
+<div class="banner container-fluid">
   <div class="row justify-content-center">
-    <div class="col-auto my-3">
+    <div class="col-12 my-3">
       <%= form_with url: root_path, method: :get, local: true, class: "search-form", id: "search-form" do |form| %>
         <%= text_field_tag :query,
         params[:query],
@@ -14,7 +15,7 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-auto">
+    <div class="col-lg-auto">
       <h1 class="text-center">Welcome to EquipMe</h1>
     </div>
   </div>
@@ -54,8 +55,10 @@
 
 <% else %>
 
-  <div class="p-3 m-4"> <h2 class="m-0">Check the Items</h2></div>
-  <div class="container-fluid d-flex flex-wrap justify-content p-3">
+
+  <div class="container-fluid p-3">
+  <div class="p-3 m-4"> <h2>Check the Items</h2></div>
+  <div class="flexbox d-flex flex-wrap justify-content">
     <% @items.each do |item| %>
       <div class="space p-3">
         <%= link_to item_path(item) do %>
@@ -75,5 +78,6 @@
         <% end %>
       </div>
     <% end %>
+  </div>
   </div>
 <% end %>
