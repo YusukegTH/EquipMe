@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_item, only: [:index, :new, :create]
-  before_action :set_booking, only: [:edit, :update, :destroy]
+  before_action :set_item, only: %i[index new create]
+  before_action :set_booking, only: %i[edit update destroy]
 
   def index
     @bookings = Booking.all
