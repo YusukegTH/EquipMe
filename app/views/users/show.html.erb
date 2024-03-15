@@ -39,11 +39,11 @@
 </div>
 
 
-<div class="profile-page-bookings">
-  <h2>Bookings</h2>
-  <div class="container-fluid d-flex flex-nowrap justify-content p-3">
+<div class="container-fluid p-3">
+  <div class="p-3 m-4"> <h2>My Bookings</h2></div>
+  <div class="flexbox d-flex flex-wrap justify-content">
     <% @bookings.each do |booking| %>
-        <div class="space-search p-3">
+      <div class="space p-3">
           <div class="booking-item-card rounded-4">
             <div><%= image_tag booking.item.picture, class: 'index-card-img-top rounded-top-4' %> </div>
             <div class="card-elements p-2 rounded-bottom-4">
@@ -60,9 +60,8 @@
                 <% end %>
               </div>
             </div>
-
           </div>
-        </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
-</div>
+  </div>
